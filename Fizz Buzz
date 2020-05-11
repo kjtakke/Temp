@@ -52,5 +52,18 @@ for i in n:
 		print("Buzz")
 	else:
 		print(i)
-	
+
+
+n = input()
+n = list(range(1,int(n)+1))
+t = 3
+f = 5
+tw = "Fizz"
+fw = "Buzz"
+for i in n:
+	op = ""
+	if i % t == 0: op = op + tw
+	if i % f == 0: op = op + fw
+	if op == "": op = str(i)
+	print(op)
 
