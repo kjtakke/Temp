@@ -70,3 +70,20 @@ for i in n:
 	if op == "": op = str(i)
 	print(op)
 
+
+
+#_________
+
+n = input()
+v = [3,5]
+o = ["Fizz","Buzz"]
+a = lambda x,y: y % x == 0
+p = ""
+for i in list(range(1,int(n)+1)):
+	p = ""
+	c = 0
+	for j in v:
+		if a(j,i) == True: p = p + o[c]
+		c = 1
+	if p == "": p = str(i)
+	print(p)
