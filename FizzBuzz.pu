@@ -78,7 +78,6 @@ n = input()
 v = [3,5]
 o = ["Fizz","Buzz"]
 a = lambda x,y: y % x == 0
-p = ""
 for i in list(range(1,int(n)+1)):
 	p = ""
 	c = 0
