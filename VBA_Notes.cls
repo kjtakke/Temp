@@ -27,3 +27,51 @@ AryFromCell = worksheets(WS).range(cells(cAdd1), cells(cAdd2)).value
 
 end if
 End Function
+
+
+function twoDP(agg as string, index as variant, values as variant) as variant
+
+dim ary1, ary2, unique as variant
+dim c as long
+dim avg as variant
+dim isSame as boolean 
+redim unique(1 to ubound(index))
+
+'Unique value set
+unique(1) = index(1,1)
+c = 1
+for i = 2 to ubound(index)
+	isSame = false
+	for j = 1 to ubound(unique)
+		if unique(j) = index(i,1) then 			isSame = true
+	next j
+	if isSame = false then
+	c = c + 1
+	unique(c) = index(i,1)
+next i
+redim preserve unique(1 to c, 1 to 2)
+
+'Aggregation
+for i = 1 to ubound(unique)
+	redim avg(1 to 2)
+	avg(1) = 0
+	avg(2) = 0
+	for j = 1 to ubound(values)
+		if index(j,1) = unique(i,1) then
+			avg(1) = avg(1) + 1
+			avg(2) = avg(2) + values(j,1)
+		end if
+	next j
+	select case true
+		case agg = "sum"
+			unique(i,2) = avg(2)
+		case agg = "average"
+			unique(i,2) = avg(2)/avg(1)
+		case agg = "count"
+			unique(i,2) = avg(1)
+	end select
+next i
+
+'return
+twoDP = unique
+end function
