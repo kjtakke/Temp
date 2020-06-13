@@ -66,7 +66,7 @@ for i = 1 to ubound(unique)
 		case agg = "sum"
 			unique(i,2) = avg(2)
 		case agg = "average"
-			unique(i,2) = Round(avg(2)/avg(1))
+			unique(i,2) = Round(avg(2)/avg(1),0)
 		case agg = "count"
 			unique(i,2) = avg(1)
 	end select
