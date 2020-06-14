@@ -75,3 +75,70 @@ next i
 'return
 twoDP = unique
 end function
+
+
+
+function TwoTxtDataPoints(ary as variant) as string
+
+TwoTxtDataPoints = ""
+
+For i = 1 to ubound(index)
+
+	TwoTxtDataPoints = TwoTxtDataPoints & "{ label: '" & ary(i,1) & "' y: " & ary(i,2) & " }," & vbnewline
+
+next i
+
+end function
+
+
+function TwoNoDataPoints(ary as variant) as string
+
+TwoDataPoints = ""
+
+For i = 1 to ubound(index)
+
+	TwoNoDataPoints = TwoNoDataPoints & "{ label: " & ary(i,1) & " y: " & ary(i,2) & " }," & vbnewline
+
+next i
+
+end function
+
+
+
+function BubbleDataPoints(ary as variant) as string
+
+BubbleDataPoints = ""
+
+For i = 1 to ubound(index)
+
+	BubbleDataPoints = BubbleDataPoints & "{  name: ''" & ary(i,1) & "' x: " & ary(i,2) & " y: " & ary(i,3) & " z: " & ary(i,4) & " }," & vbnewline
+
+next i
+
+end function
+
+
+
+function BoxDataPoints(ary as variant) as string
+
+BoxDataPoints = ""
+
+For i = 1 to ubound(index)
+
+	BoxDataPoints = BoxDataPoints & "{ label: '" & ary(i,1) & "' y: " & ary(i,2) & ", " & ary(i,2) & ", " & ary(i,2) & ", " & ary(i,2) & ", " & ary(i,2) & " }," & vbnewline
+
+next i
+
+end function
+
+function RangePoints(ary as variant) as string
+
+RangePoints = ""
+
+For i = 1 to ubound(index)
+
+	RangePoints = RangePoints & "{ label: '" & ary(i,1) & "' y: " & ary(i,2) & ", " & ary(i,2) & ", " & ary(i,2) & ", " & ary(i,2) & ", " & ary(i,2) & " }," & vbnewline
+
+next i
+
+end function
