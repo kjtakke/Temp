@@ -102,7 +102,7 @@ For i = 1 to ubound(index)
 next i
 
 end function
-
+For 
 
 
 function BubbleDataPoints(ary as variant) as string
@@ -142,3 +142,23 @@ For i = 1 to ubound(index)
 next i
 
 end function
+
+
+
+Function TwoArraysToOneDataSet(ary1 as variant, ary2 as varient) as variant
+
+dim ary as variant
+redim ary(1 to ubound(ary1), 1 to 2)
+
+for i = 1 to ubound(ary1)
+
+ary(i,1) = ary1(i,1)
+ary(i,2) = ary2(i,1)
+
+next i
+
+TwoArraysToOneDataSet = ary
+
+end function
+
+
