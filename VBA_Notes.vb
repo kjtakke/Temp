@@ -196,7 +196,7 @@ function extractData(fileLocas string) as string
 'Page: !~P~!
 'Row: !~R~!
 'Page: !~C~!
-'Other: ,
+'Other: !~|~! !~||~! !~|||~!
 
 '1.1.1 = Page data
 '1.2(50).1 = Row data
