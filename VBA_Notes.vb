@@ -195,7 +195,7 @@ function extractData(fileLocas string) as string
 'Deliminators
 'Page: !~P~!
 'Row: !~R~!
-'Page: !~C~!
+'Column: !~C~!
 'Other: !~|~! !~||~! !~|||~!
 
 '1.1.1 = Page data
