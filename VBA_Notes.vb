@@ -1,42 +1,8 @@
 
-function TwoTxtDataPoints(ary as variant) as string
-
-TwoTxtDataPoints = ""
-
-For i = 1 to ubound(index)
-
-	TwoTxtDataPoints = TwoTxtDataPoints & "{ label: '" & ary(i,1) & "' y: " & ary(i,2) & " }," & vbnewline
-
-next i
-
-end function
 
 
-function TwoNoDataPoints(ary as variant) as string
-
-TwoDataPoints = ""
-
-For i = 1 to ubound(index)
-
-	TwoNoDataPoints = TwoNoDataPoints & "{ label: " & ary(i,1) & " y: " & ary(i,2) & " }," & vbnewline
-
-next i
-
-end function
-For 
 
 
-function BubbleDataPoints(ary as variant) as string
-
-BubbleDataPoints = ""
-
-For i = 1 to ubound(index)
-
-	BubbleDataPoints = BubbleDataPoints & "{  name: ''" & ary(i,1) & "' x: " & ary(i,2) & " y: " & ary(i,3) & " z: " & ary(i,4) & " }," & vbnewline
-
-next i
-
-end function
 
 
 
