@@ -1,23 +1,3 @@
-
-
-
-
-
-
-
-
-function BoxDataPoints(ary as variant) as string
-
-BoxDataPoints = ""
-
-For i = 1 to ubound(index)
-
-	BoxDataPoints = BoxDataPoints & "{ label: '" & ary(i,1) & "' y: " & ary(i,2) & ", " & ary(i,2) & ", " & ary(i,2) & ", " & ary(i,2) & ", " & ary(i,2) & " }," & vbnewline
-
-next i
-
-end function
-
 function RangePoints(ary as variant) as string
 
 RangePoints = ""
