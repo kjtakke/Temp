@@ -121,42 +121,57 @@ end Function
 
 
 
-
-
 Option Explicit
-Private Declare Function GetSysColor Lib "user32.dll" ( _
-ByVal nIndex As Long) As Long
-Private Declare Function SetSysColors Lib "user32.dll" ( _
-ByVal nChanges As Long, _
-ByRef lpSysColor As Long, _
-ByRef lpColorValues As Long) As Long
-Const COLOR_ACTIVECAPTION As Long = 2
-Const COLOR_GRADIENTACTIVECAPTION As Long = 27
-Const COLOR_CAPTIONTEXT As Long = 9
-Dim myCOLOR_CAPTIONTEXT As Long, myCOLOR_ACTIVECAPTION As Long
-Dim myCOLOR_GRADIENTACTIVECAPTION As Long
------------------------------------------
-Paste this in main userform module after creating two command buttons on the
-test userform:
------------------------------------------
+#If VBA7 Then
+    Public Declare PtrSafe Function FindWindow Lib "user32" _
+                Alias "FindWindowA" _
+               (ByVal lpClassName As String, _
+                ByVal lpWindowName As String) As Long
 
-Private Sub CommandButton1_Click()
-Dim lngReturn As Long
-myCOLOR_CAPTIONTEXT = GetSysColor(COLOR_CAPTIONTEXT)
-myCOLOR_ACTIVECAPTION = GetSysColor(COLOR_ACTIVECAPTION)
-myCOLOR_GRADIENTACTIVECAPTION = GetSysColor(COLOR_GRADIENTACTIVECAPTION)
 
-lngReturn = SetSysColors(1, COLOR_CAPTIONTEXT, &HC0FFC0) 'Hex values for
-the primary colors
-lngReturn = SetSysColors(1, COLOR_ACTIVECAPTION, vbWhite)
-lngReturn = SetSysColors(1, COLOR_GRADIENTACTIVECAPTION, vbRed)
-End Sub
+    Public Declare PtrSafe Function GetWindowLong Lib "user32" _
+                Alias "GetWindowLongA" _
+               (ByVal hWnd As Long, _
+                ByVal nIndex As Long) As Long
 
-Private Sub CommandButton2_Click()
-Dim lngReturn As Long
 
-lngReturn = SetSysColors(1, COLOR_CAPTIONTEXT, myCOLOR_CAPTIONTEXT)
-lngReturn = SetSysColors(1, COLOR_ACTIVECAPTION, myCOLOR_ACTIVECAPTION)
-lngReturn = SetSysColors(1, COLOR_GRADIENTACTIVECAPTION,
-myCOLOR_GRADIENTACTIVECAPTION)
+    Public Declare PtrSafe Function SetWindowLong Lib "user32" _
+                Alias "SetWindowLongA" _
+               (ByVal hWnd As Long, _
+                ByVal nIndex As Long, _
+                ByVal dwNewLong As Long) As Long
+
+
+    Public Declare PtrSafe Function DrawMenuBar Lib "user32" _
+               (ByVal hWnd As Long) As Long
+#Else
+    Public Declare Function FindWindow Lib "user32" _
+                Alias "FindWindowA" _
+               (ByVal lpClassName As String, _
+                ByVal lpWindowName As String) As Long
+
+
+    Public Declare Function GetWindowLong Lib "user32" _
+                Alias "GetWindowLongA" _
+               (ByVal hwnd As Long, _
+                ByVal nIndex As Long) As Long
+
+
+    Public Declare Function SetWindowLong Lib "user32" _
+                Alias "SetWindowLongA" _
+               (ByVal hwnd As Long, _
+                ByVal nIndex As Long, _
+                ByVal dwNewLong As Long) As Long
+    Public Declare Function DrawMenuBar Lib "user32" _
+               (ByVal hwnd As Long) As Long
+#End If
+Sub HideBar(frm As Object)
+
+Dim Style As Long, Menu As Long, hWndForm As Long
+hWndForm = FindWindow("ThunderDFrame", frm.Caption)
+Style = GetWindowLong(hWndForm, &HFFF0)
+Style = Style And Not &HC00000
+SetWindowLong hWndForm, &HFFF0, Style
+DrawMenuBar hWndForm
+
 End Sub
