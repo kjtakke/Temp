@@ -4,10 +4,10 @@ Public XLWD as String
 Sub InitiateDataArray
 redim WDdata(0 to 999, 0 to 999,0 to 30,0 to 300)
 
-'Metadata    0.0.0.0-#
-'Page data   P.0.0.0-#
-'Row data    P.R.0.0-#
-'Column data P.R.C.0-#
+'Metadata    0.0.0.0-999
+'Page data   P.0.0.0-999
+'Row data    P.R.0.0-30
+'Column data P.R.C.0-300
 
 Call GetWebPageData
 
@@ -15,36 +15,46 @@ Dim MTD as varient
 Dim PGS,  RWS,  CLS as varient
 Dim PGSD, RWSD, CLSD as varient
 
-
+'Metadata
 MTD = split(XLWD, "MM")
 for M = 1 to ubound(MTD)-1
-	WDdata(0,0,0,M) = MTD(M,1)
+	WDdata(0,0,0,M-1) = MTD(M,1)
 Next M
 
+'Pages
 PGS = split(XLWD, "PP")
 for P = 2 to ubound(Pages)
+
+        'Page Data
 	PGSD = split(XLWD, "PD")
 	for PD = 1 to ubound(PGSD)
-		WDdata(P-1,0,0,PD) = PGSD(PD,1)
+		WDdata(P-1,0,0,PD-1) = PGSD(PD,1)
 	next PD
-
+        
+        'Rows
 	RWS = split(PGS(P,1))
 	for R = 2 to ubound(Rows, "RR")
+
+                'Row Data
 		RWSD = split(RWS(RD,1))
 		for RD = 1 to ubound(RWSD)
-			WDdata(P-1,R-1,0,RD) = RWSD(RD,1)
+			WDdata(P-1,R-1,0,RD-1) = RWSD(RD,1)
 		next RD
 
+                'Columns
 		CLS = split(RWS(R,1))
 		for C = 2 to ubound(CLS, "CC")
+
+                        'Column Data
 			CLSD = split(CLS(CD,1))
 			for CD = 1 to ubound(CLSD)
-				WDdata(P-1,R-1,C-1,CD) = CLSD(CD,1)
+				WDdata(P-1,R-1,C-1,CD-1) = CLSD(CD,1)
 			next CD
 
 		next C
 	next R
 next P
+
 End Sub
 
 
