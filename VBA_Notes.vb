@@ -50,8 +50,7 @@ for P = 2 to ubound(Pages)
 			for CD = 1 to ubound(CLSD)
 				WDdata(P-1,R-1,C-1,CD-1) = CLSD(CD,1)
 			next CD
-
-		next C
+                next C
 	next R
 next P
 
