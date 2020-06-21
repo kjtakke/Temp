@@ -11,10 +11,10 @@ Public XLWD as String
 Sub InitiateDataArray
 redim WDdata(0 to 100, 0 to 100, 0 to 30, 0 to 300)
 
-'Metadata    0.0.0.0-999
-'Page data   P.0.0.0-999
-'Row data    P.R.0.0-30
-'Column data P.R.C.0-300
+'Metadata    0.0.0.0-##
+'Page data   P.0.0.0-##   0 = 0(exclude) or 1(include)
+'Row data    P.R.0.0-##   0 = 0(exclude) or 1(include)
+'Column data P.R.C.0-300  0 = 0(exclude) or 1(include)
 
 Call GetWebPageData
 
