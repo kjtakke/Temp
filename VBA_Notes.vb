@@ -1,3 +1,17 @@
+Const WDdata as variant
+
+Sub InitiateDataArray
+Redim WDdata(0 to 999, 0 to 999,0 to 30,0 to 300)
+
+'Metadata    0.0.0.0-#
+'Page data   P.0.0.0-#
+'Row data    P.R.0.0-#
+'Column data P.R.C.0-#
+End Sub
+
+
+
+
 Function chart( _
 		  index as string, _
 		  values as string, _
