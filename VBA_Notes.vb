@@ -17,7 +17,7 @@ Dim PGSD, RWSD, CLSD as varient
 
 
 MTD = split(XLWD, "MM")
-for M = 1 to ubound(MTD)
+for M = 1 to ubound(MTD)-1
 	WDdata(0,0,0,M) = MTD(M,1)
 Next M
 
