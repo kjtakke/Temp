@@ -1,4 +1,11 @@
 Const WDdata as variant
+Const MD as String = ""
+Const PP as String = ""
+Const PD as String = ""
+Const RR as String = ""
+Const RD as String = ""
+Const CC as String = ""
+Const CD as String = ""
 Public XLWD as String
 
 Sub InitiateDataArray
