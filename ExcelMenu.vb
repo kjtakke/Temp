@@ -1,3 +1,56 @@
+'const numeric = [
+    '['input1','input2'],
+    '['input3','input4']
+'];
+
+var numeric = [
+    ['input1','input2'],
+    ['input3','input4']
+];
+'numeric[0][0] == 'input1';
+'numeric[0][1] == 'input2';
+'numeric[1][0] == 'input3';
+'numeric[1][1] == 'input4';
+
+function JSA(data as varient)
+dim D as long 
+dim tempAry as varient
+tempAry = data
+D = dimentions(tempAry)
+tempAry = empty
+
+dim V as string
+V= "V"
+dim H as string
+V= "H"
+
+data = 
+
+JS = "const " & varNm & "[" & vbnewline
+
+
+for i  1 to ubound(data)
+JS = JS & "["
+for j = 1 to default
+if isnumeric(data(i,j)) = true then JS = JS & data(i,j) & "," & vbnewline
+else
+JS = JS & "'" & data(i,j) & "'," & vbnewline
+end if
+next j
+JS = JS & "],"
+next i
+JS = JS & "];"
+end function
+
+
+
+
+
+
+
+
+
+
 https://www.onlinegdb.com/online_vb_compiler
 
 Option Explicit
