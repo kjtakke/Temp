@@ -1,3 +1,5 @@
+'https://www.thespreadsheetguru.com/blog/2014/6/20/the-vba-guide-to-listobject-excel-tables
+
 'Public Arrays
 Public WDdata as variant            'Website Data Aarray
 Public ColumnText as Variant        'Column Text Field
