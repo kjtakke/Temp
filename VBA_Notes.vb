@@ -1,4 +1,12 @@
 'https://www.thespreadsheetguru.com/blog/2014/6/20/the-vba-guide-to-listobject-excel-tables
+'
+
+Sub OpenEdge()
+
+ActiveWorkbook.FollowHyperlink Address:="microsoft-edge:https://www.google.com"
+
+End Sub
+
 
 'Name macro
 Sub ListTables()
