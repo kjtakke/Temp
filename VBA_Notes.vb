@@ -1,6 +1,22 @@
 'https://www.thespreadsheetguru.com/blog/2014/6/20/the-vba-guide-to-listobject-excel-tables
 '
 
+If IsLoaded("Form_Test") Then
+    'Do Something
+End If
+
+Public Function IsLoaded(formName As String) As Boolean
+Dim frm As Object
+For Each frm In VBA.UserForms
+    If frm.Name = formName Then
+        IsLoaded = True
+        Exit Function
+    End If
+Next frm
+IsLoaded = False
+End Function
+
+
 Sub OpenEdge()
 
 ActiveWorkbook.FollowHyperlink Address:="microsoft-edge:https://www.google.com"
