@@ -1,5 +1,49 @@
 'https://www.thespreadsheetguru.com/blog/2014/6/20/the-vba-guide-to-listobject-excel-tables
 
+'Name macro
+Sub ListTables()
+
+'Declare variables and data types
+Dim tbl As ListObject
+Dim WS As Worksheet
+Dim i As Single, j As Single
+
+'Insert new worksheet and save to object WS
+Set WS = Sheets.Add
+
+'Save 1 to variable i
+i = 1
+
+'Go through each worksheet in the worksheets object collection
+For Each WS In Worksheets
+
+    'Go through all Excel defined Tables located in the current WS worksheet object
+    For Each tbl In WS.ListObjects
+        
+        'Save Excel defined Table name to cell in column A
+        Range("A1").Cells(i, 1).Value = tbl.Name
+
+        'Iterate through columns in Excel defined Table
+        For j = 1 To tbl.Range.Columns.Count
+
+            'Save header name to cell next to table name
+            Range("A1").Cells(i, j + 1).Value = tbl.Range.Cells(1, j)
+
+        'Continue with next column
+        Next j
+
+        'Add 1 to variable i
+        i = i + 1
+    
+    'Continue with next Excel defined Table
+    Next tbl
+
+'Continue with next worksheet
+Next WS
+
+'Exit macro
+End Sub
+
     TextBox1.MultiLine = True
     TextBox1.Value = [A1] & vbCr & [B1] & vbCr & [C1]
 
