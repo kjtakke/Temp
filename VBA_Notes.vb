@@ -5,7 +5,15 @@
 
 Replace(myText, vbCR, vbCRLF)
 
-'Public Arrays
+Sub passValuesToCell()
+    Dim lines: lines = Split(UserForm1.TextBox25.value, vbLf)
+    Dim i As Long
+    For i = 0 To UBound(lines)
+        Sheet1.Range("J" & i + 1).Resize(, 3).value = Split(lines(i), vbTab)
+    Next
+End Sub
+
+'Public Arrays KB
 Public WDdata as variant            'Website Data Aarray
 Public ColumnText as Variant        'Column Text Field
 Public JavaScriptText as Variant    'JavaScript Field
