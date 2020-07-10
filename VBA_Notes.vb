@@ -1,5 +1,10 @@
 'https://www.thespreadsheetguru.com/blog/2014/6/20/the-vba-guide-to-listobject-excel-tables
 
+    TextBox1.MultiLine = True
+    TextBox1.Value = [A1] & vbCr & [B1] & vbCr & [C1]
+
+Replace(myText, vbCR, vbCRLF)
+
 'Public Arrays
 Public WDdata as variant            'Website Data Aarray
 Public ColumnText as Variant        'Column Text Field
