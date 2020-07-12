@@ -1,0 +1,12 @@
+We can list every path, key and data item like so:
+
+Set dic = ParseJSON(Selection)
+MsgBox ListPaths(dic)
+
+And you can get at any item by using the full path:
+
+MsgBox dic("obj.data.measures(0).metrics(0).temp(2)") '<--displays: 5
+
+Or you can filter items to an array:
+
+v = GetFilteredValues(dic, "*.metrics*")
